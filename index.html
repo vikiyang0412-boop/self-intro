@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>김서연 | 프론트엔드 개발자 포트폴리오</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700&display=swap');
+        
+        body {
+            font-family: 'Pretendard', sans-serif;
+            transition: background-color 0.3s ease;
+        }
+
+        .bg-light {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .dark .bg-dark-custom {
+            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .dark .glass-card {
+            background: rgba(45, 55, 72, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-tag {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid #e2e8f0;
+            padding: 0.4rem 0.8rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #4a5568;
+            display: inline-block;
+            margin: 0.25rem;
+            transition: all 0.3s ease;
+        }
+
+        .dark .skill-tag {
+            background: rgba(74, 85, 104, 0.8);
+            border-color: rgba(255, 255, 255, 0.1);
+            color: #e2e8f0;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #4f46e5, #9333ea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .dark .gradient-text {
+            background: linear-gradient(90deg, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        #theme-toggle {
+            position: fixed;
+            top: 1.5rem;
+            right: 1.5rem;
+            z-index: 50;
+        }
+    </style>
+</head>
+<body class="bg-light dark:bg-dark-custom py-12 px-4 sm:px-6 lg:px-8">
+    <!-- 다크모드 토글 버튼 -->
+    <button id="theme-toggle" class="p-3 rounded-full glass-card hover:scale-110 active:scale-95 transition-all outline-none">
+        <i id="theme-icon" class="fas fa-moon text-indigo-500 text-xl"></i>
+    </button>
+
+    <div class="max-w-4xl mx-auto space-y-8">
+        
+        <!-- 프로필 섹션 -->
+        <header class="glass-card p-8 flex flex-col md:flex-row items-center gap-8 text-center md:text-left">
+            <div class="relative">
+                <div class="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-white dark:border-gray-700 shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=400&h=400&auto=format&fit=crop" 
+                         alt="김서연 프로필 사진" 
+                         class="w-full h-full object-cover">
+                </div>
+                <div class="absolute bottom-2 right-2 w-6 h-6 bg-green-500 border-2 border-white dark:border-gray-700 rounded-full"></div>
+            </div>
+            <div class="flex-1">
+                <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-2">김서연 <span class="text-xl font-normal text-gray-500 dark:text-gray-400 ml-2">Kim Seoyeon</span></h1>
+                <p class="text-xl font-semibold gradient-text mb-4">프론트엔드 개발자</p>
+                <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    "사용자 경험을 최우선으로 생각하는 프론트엔드 개발자입니다."
+                </p>
+            </div>
+        </header>
+
+        <!-- 자기소개 상세 -->
+        <section class="glass-card p-8">
+            <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-4 flex items-center">
+                <i class="fas fa-user-circle mr-3 text-indigo-500"></i> About Me
+            </h2>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                안녕하세요! 3년차 프론트엔드 개발자 김서연입니다. 사용자가 직관적으로 사용할 수 있는 인터페이스를 만드는 것에 열정을 가지고 있습니다. 최신 웹 기술을 활용하여 빠르고 아름다운 웹 애플리케이션을 개발하는 것을 즐깁니다.
+            </p>
+        </section>
+
+        <!-- 기술 스택 -->
+        <section class="glass-card p-8">
+            <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-6 flex items-center">
+                <i class="fas fa-code mr-3 text-indigo-500"></i> Tech Stack
+            </h2>
+            <div class="space-y-6">
+                <div>
+                    <h3 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-3">Frontend</h3>
+                    <div class="flex flex-wrap">
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Next.js</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">Vue.js</span>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-3">Styling</h3>
+                    <div class="flex flex-wrap">
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">Sass</span>
+                        <span class="skill-tag">Tailwind CSS</span>
+                        <span class="skill-tag">Styled-components</span>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <h3 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-3">Tools</h3>
+                        <div class="flex flex-wrap">
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">Figma</span>
+                            <span class="skill-tag">Webpack</span>
+                            <span class="skill-tag">Vite</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-3">Others</h3>
+                        <div class="flex flex-wrap">
+                            <span class="skill-tag">REST API</span>
+                            <span class="skill-tag">GraphQL</span>
+                            <span class="skill-tag">Firebase</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 프로젝트 -->
+        <section class="glass-card p-8">
+            <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-6 flex items-center">
+                <i class="fas fa-rocket mr-3 text-indigo-500"></i> Projects
+            </h2>
+            <ul class="space-y-4">
+                <li class="flex items-start p-4 rounded-xl bg-white/50 dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700">
+                    <span class="text-2xl mr-4">🛒</span>
+                    <div>
+                        <h3 class="font-bold text-gray-800 dark:text-gray-200">E-commerce 플랫폼 리뉴얼 (2024)</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">결제 프로세스 최적화 및 Lighthouse 성능 점수 40% 개선</p>
+                    </div>
+                </li>
+                <li class="flex items-start p-4 rounded-xl bg-white/50 dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700">
+                    <span class="text-2xl mr-4">📱</span>
+                    <div>
+                        <h3 class="font-bold text-gray-800 dark:text-gray-200">모바일 반응형 대시보드 개발 (2023)</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">실시간 데이터 시각화 및 복잡한 차트 라이브러리 연동</p>
+                    </div>
+                </li>
+                <li class="flex items-start p-4 rounded-xl bg-white/50 dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700">
+                    <span class="text-2xl mr-4">🎨</span>
+                    <div>
+                        <h3 class="font-bold text-gray-800 dark:text-gray-200">디자인 시스템 구축 (2023)</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">팀 생산성 향상을 위한 공통 컴포넌트 라이브러리 제작</p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <!-- 연락처 -->
+        <footer class="glass-card p-8">
+            <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-6 flex items-center">
+                <i class="fas fa-envelope mr-3 text-indigo-500"></i> Contact
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <a href="mailto:seoyeon.kim@example.com" class="flex items-center p-4 rounded-xl hover:bg-white dark:hover:bg-gray-700 transition-colors group">
+                    <i class="fas fa-at w-10 text-xl text-gray-400 group-hover:text-indigo-500"></i>
+                    <div>
+                        <p class="text-xs font-bold text-gray-400 uppercase">Email</p>
+                        <p class="text-gray-700 dark:text-gray-300">seoyeon.kim@example.com</p>
+                    </div>
+                </a>
+                <a href="https://github.com/seoyeonkim" class="flex items-center p-4 rounded-xl hover:bg-white dark:hover:bg-gray-700 transition-colors group">
+                    <i class="fab fa-github w-10 text-xl text-gray-400 group-hover:text-black dark:group-hover:text-white"></i>
+                    <div>
+                        <p class="text-xs font-bold text-gray-400 uppercase">GitHub</p>
+                        <p class="text-gray-700 dark:text-gray-300">github.com/seoyeonkim</p>
+                    </div>
+                </a>
+                <a href="https://linkedin.com/in/seoyeonkim" class="flex items-center p-4 rounded-xl hover:bg-white dark:hover:bg-gray-700 transition-colors group">
+                    <i class="fab fa-linkedin w-10 text-xl text-gray-400 group-hover:text-blue-600"></i>
+                    <div>
+                        <p class="text-xs font-bold text-gray-400 uppercase">LinkedIn</p>
+                        <p class="text-gray-700 dark:text-gray-300">linkedin.com/in/seoyeonkim</p>
+                    </div>
+                </a>
+                <a href="https://seoyeon.dev" class="flex items-center p-4 rounded-xl hover:bg-white dark:hover:bg-gray-700 transition-colors group">
+                    <i class="fas fa-link w-10 text-xl text-gray-400 group-hover:text-purple-500"></i>
+                    <div>
+                        <p class="text-xs font-bold text-gray-400 uppercase">Blog</p>
+                        <p class="text-gray-700 dark:text-gray-300">seoyeon.dev</p>
+                    </div>
+                </a>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700 text-center text-gray-400 text-sm">
+                © 2024 Kim Seoyeon. Built with Passion.
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const html = document.documentElement;
+
+        // 초기 테마 설정 (시스템 설정 반영)
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            html.classList.add('dark');
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
+        }
+
+        // 토글 버튼 클릭 이벤트
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            
+            if (html.classList.contains('dark')) {
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+                themeIcon.classList.add('text-yellow-400');
+                themeIcon.classList.remove('text-indigo-500');
+            } else {
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+                themeIcon.classList.add('text-indigo-500');
+                themeIcon.classList.remove('text-yellow-400');
+            }
+        });
+    </script>
+</body>
+</html>
